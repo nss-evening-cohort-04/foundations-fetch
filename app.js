@@ -3,14 +3,14 @@
 
   debugger
 
-  app.controller('MainController', function($scope, requestService) {
+  app.controller('MainController', function($scope, requestService, Response) {
     $scope.responses = [];
     $scope.url = "http://httpstat.us/200";
 
     $scope.fetch = () => {
       requestService.get($scope.url).then((success) => {
-        debugger
-        $scope.responses.push({ statusCode: success.status });
+        const response = new Response(success);
+        $scope.responses.push({ response });
       }, (error) => {
         debugger
         //do something else
@@ -20,5 +20,13 @@
 
   app.service('requestService', function($http) {
     this.get = (url) => $http.get(url);
+  });
+
+  app.factory('Response', function () {
+    const Response = function (responseData) {
+      this.statusCode = responseData.status;
+    };
+
+    return Response;
   });
 })();
