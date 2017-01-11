@@ -1,9 +1,16 @@
 "use strict";
 
-var app = angular.module("fetchApp", ["ngRoute"]);
+var app = angular.module("fetchApp", []);
+
 
 app.controller("Default", function ($scope, requestService) {
-  $scope.message = 'hello';
+  $scope.fetch = () => {
+    requestService.get($scope.url).then(success => {
+      // do something
+    }, error => {
+      // do something
+    });
+  };
 });
 
 app.service('requestService', function ($http) {
