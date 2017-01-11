@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>Fetch</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   </head>
-  <body ng-app="myApp">
-    <div ng-controller="homeCtrl">
-      1 + 1 = {{1 + 1}}
-    </div>
+  <body ng-controller="homeCtrl">
+
+      <div class="container">
+        <div class="row">
+          <div class="three columns">
+            <label for="textInput">Enter URL</label>
+            <input type="text" id="textInput" ng-model="url">
+            <button ng-click="fetch()">Click Me</button>
+          </div>
+        </div>
+      </div>
+
+      <ul>
+        <li ng-repeat="response in responses">
+          {{ response.statusCode }}
+        </li>
+      </ul>
+
   </body>
   <script type="text/javascript" src="javascripts/app.js"></script>
-  <script type="text/javascript" src="javascripts/controllers/homeCtrl.js"></script>
+  <!-- <script type="text/javascript" src="javascripts/controllers/homeCtrl.js"></script> -->
 
 </html>
