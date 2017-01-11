@@ -10,19 +10,53 @@
 
   <div class="row top">
     <div class="col-sm-12">
-      <div class="text-center top">1 + 1 = {{1 + 1}}</div>
+      <h4 class="text-center top">
+        Testing Angular
+      </h4>
+      <div class="text-center top">
+        1 + 1 = {{1 + 1}}
+      </div>
     </div>
-    <div class="col-sm-12 top">
-      <div class="text-center">Your Home page should have a text input (for URL), select/dropdown (containing HTTP methods) and a "Fetch" button all centered on the page. The user should be able to select an HTTP Method from the dropdown. Clicking the "Fetch" button will make an AJAX call to the specified URL. Your drop-down element should contain/allow for the user to use the **GET**, **POST**, **OPTIONS** and **HEAD** HTTP methods.</div>
+  </div>
+
+
+  <div class="container top">
+    <div class="row">
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <label for="example-text-input" class="col-xs-6 col-form-label">Enter a URL</label>
+          <div class="col-xs-12">
+            <input class="form-control" type="text" placeholder="URL">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="exampleSelect1">HTTP Methods</label>
+            <select class="form-control" id="exampleSelect1">
+              <option>GET</option>
+              <option>POST</option>
+              <option>OPTIONS</option>
+              <option>HEAD</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row text-center">
+        <div class="col-sm-12">
+          <button type="submit" class="btn btn-primary"><p>FETCH</p></button>
+        </div>
+      </div>
     </div>
   </div>
 
 <!-- JS files -->
-<script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="lib/node_modules/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="lib/node_modules/angular-route/angular-route.min.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="/javascripts/app.js"></script>
+  <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="lib/node_modules/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="lib/node_modules/angular-route/angular-route.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="/javascripts/app.js"></script>
 
 </body>
 </html>
