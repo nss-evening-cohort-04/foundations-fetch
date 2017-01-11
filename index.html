@@ -10,19 +10,23 @@
 	<script type="text/javascript" src="/factories/requestFactory.js"></script>
 </head>
 <body ng-controller="MainController">
-	
-	<input type="text" ng-model="url">
-	<button ng-click="fetch()">Click Me!</button>
-	<select name="select">
-	    <option value="GET">GET</option> 
-	    <option value="POST" selected>POST</option>
-	    <option value="PATCH">PATCH</option>
-	</select>
-	<ul>
-		<li ng-repeat="response in responses">
-			{{response.statusCode}}
-		</li>
-	</ul>
+
+	<div class="sixteen columns">
+		<div class="six columns offset-by-three">
+			<input type="text" ng-model="url">
+			<button ng-click="fetch()">Click Me!</button>
+			<select name="select">
+			    <option value="GET">GET</option> 
+			    <option value="POST" selected>POST</option>
+			    <option value="PATCH">PATCH</option>
+			</select>
+			<ul>
+				<li ng-repeat="response in responses">
+					{{response.statusCode}}
+				</li>
+			</ul>
+		</div>
+	</div>
 
 </body>
 </html>
