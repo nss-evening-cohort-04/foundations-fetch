@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="fetchApp">
 <head>
 	<meta charset="UTF-8">
 	<title>OMG</title>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script type="text/javascript" src="/app.js"></script>
+	<script type="text/javascript" src="/controllers/MainController.js"></script>
+	<script type="text/javascript" src="/factories/requestFactory.js"></script>
 </head>
-<body>
+<body ng-controller="MainController">
 	
-	<div ng-app="MyApp">
-		<div>1+1 = {{1+1}}</div>
-	</div>
-	
+	<input type="text" ng-model="url">
+	<button ng-click="fetch()">Click Me!</button>
+	<select name="select">
+	    <option value="GET">GET</option> 
+	    <option value="POST" selected>POST</option>
+	    <option value="PATCH">PATCH</option>
+	</select>
+	<ul>
+		<li ng-repeat="response in responses">
+			{{response.statusCode}}
+		</li>
+	</ul>
+
 </body>
 </html>
+

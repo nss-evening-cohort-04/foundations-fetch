@@ -1,21 +1,19 @@
-//will work now, after ng-app directive added
+;(function () {
 
-angular.module("MyApp", []);
+	const app = angular.module("fetchApp", []);
+
+	app.service("requestService", function ($http){
+		this.get = (url) => $http.get(url);
+	});
+
+})();	
 
 
-// ;(function(){
+	
 
-// 	app = { myApp: "yes"};
-// 	console.log("one");
 
-// })();
 
-// ;(function(){
 
-// 	app = { myApp: "no"};
-// 	console.log("two");
 
-// })();
-//iife ability to name things the same name
-//make it more secure
-//won't be on the global scope
+
+
