@@ -1,3 +1,3 @@
 ;(function () {
-  const app = angular.module('fetchApp', []);
+  angular.module('fetchApp', []);
 })();
