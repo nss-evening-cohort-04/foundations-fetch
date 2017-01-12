@@ -13,19 +13,58 @@
 </head>
 
 <body ng-controller="MainController">
-    <div>
-        <input type="text" ng-model="url">
-        <button ng-click="fetch()">Click Me!</button>
-        <div>
+    <div class="container">
+        <center>
+            <h2>Foundations of Fetch</h2>
+        </center>
+        <hr/>
+
+        <div class="row">
+            <label class="four columns offset-by-two">Type a URL</label>
+            <label class="four columns">Select HTTP Method</label>
+        </div>
+        <div class="row">
+            <!--Type URL -->
+            <input type="text" class="four columns offset-by-two" ng-model="url">
+            <!-- Method Dropdown -->
             <select ng-model="method">
                 <option ng-repeat="method in methods" value="{{method}}">{{method}}</option>
             </select>
         </div>
-        <ul>
-            <li ng-repeat="response in responses">
-                {{ response.statusCode }} | {{response_time}}
-            </li>
-        </ul>
+        <div class="row">
+            <button class="two columns offset-by-five button-primary" ng-click="fetch()">Fetch</button>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="twelve columns">
+                <center>
+                    <h3>Successful Fetch Request</h3>
+                </center>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <ul class="eleven columns offset-by-one">
+                <li ng-repeat="response in responses">
+                    Url: {{response.url}} | Status Code: {{ response.statusCode }} | Response Time: {{response.response_time}} | Content Length:
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <center>
+                    <h3>Failed Fetch Request</h3>
+                </center>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <ul class="eleven columns offset-by-one">
+                <li ng-repeat="failedresponse in failedresponses">
+                    Url: {{failedresponse.url}} | Status Code: {{failedresponse.statusCode}} | Response Time: {{failedresponse.response_time}} | Content Length:
+                </li>
+            </ul>
+        </div>
     </div>
 
 </body>
