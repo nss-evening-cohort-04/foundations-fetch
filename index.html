@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="fetchApp">
+   <head>
+      <meta charset="utf-8">
+      <title>Fetch Application</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+      <script src="/app.js"></script>
+   </head>
+   <body ng-controller="MainController">
+      <div class="sixteen columns">
+         <div class="offset-by-four four columns">
+            <h3>Fetch Application</h3>
+            <input type="text" ng-model="url">
+            <select ng-model="method" ng-change="postCheck()">
+               <option value="get">GET</option>
+               <option value="post">POST</option>
+               <option value="options">OPTIONS</option>
+               <option value="head">HEAD</option>
+            </select>
+            <button ng-click="fetch()">Fetch</button>
+            <form  ng-show="userposting">Hey</form>
+            <table ng-show="!userposting">
+               <tr>
+                  <th>URL</th>
+                  <th>HTTPMethod</th>
+                  <th>Response Time</th>
+                  <th>Content Size</th>
+               </tr>
+               <tr ng-repeat="response in responses">
+                  <td>{{ response.URL }}</td>
+                  <td>{{ response.method }}</td>
+                  <td>{{ response.responseTime }}ms</td>
+                  <td>{{ response.contentSize }}MB</td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <script type="text/javascript" src="/app.js"></script>
+      <script type="text/javascript" src="/javascripts/controllers/MainController.js"></script>
+      <script type="text/javascript" src="/javascripts/factories/ResponseFactory.js"></script>
+      <script type="text/javascript" src="/javascripts/services/requestService.js"></script>
+   </body>
+</html>
