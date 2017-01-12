@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" ng-app = "fetchApp">
-<head>
-  <meta charset="UTF-8">
-  <title>Fetch</title>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <script src="/app.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+      <title>Fetch</title>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+      <script src="/app.js"></script>
+      <script src="/mainController.js"></script>
+      <script src="/requestService.js"></script>
+      <script src="/responseFactory.js"></script>
+  </head>
+
 <body ng-controller="MainController">
-<input type = "text" ng-model = "url">
-<button ng-click="fetch()">Click me!</button>
+<div class='row'>
+  <div class='sixteen columns'>
+    <div class='six columns offset-by-three'>
+      <input type = "text" ng-model = "url">
+        <select name="wompwomp">
+          <option value="pick">Choose wisely:</option>
+          <option value="get">GET</option>
+          <option value="head">HEAD</option>
+          <option value="options">OPTIONS</option>
+          <option value="post">POST</option>
+        </select>
+        <button ng-click="fetch()">Fetch, rover!!</button>
+      </div>
+    </div>
+  </div>
+
+
+
 <ul>
   <li ng-repeat="response in responses">
-  {{response.statusCode}}
+    Status Code: {{response.statusCode}}
+    Method: {{response.methodName}}
+    URL: {{response.urlName}}
+
   </li>
 </ul>
 
