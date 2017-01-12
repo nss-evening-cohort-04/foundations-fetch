@@ -1,5 +1,10 @@
-;(function () {
-  angular.module('fetchApp').service('requestService', function ($http) {
-    this.get = (url) => $http.get(url);
-  });
+;
+(function() {
+    angular.module('fetchApp').service('requestService', function($http) {
+        // .get(url);
+        this.call = (url, method) => $http({
+            method: method,
+            url: url
+        });
+    });
 })();
