@@ -9,19 +9,23 @@
 </head>
 
 <body ng-controller="MainController">
-{{message}}
+	{{message}}
 	<div class="sixteen columns">
 		<div class="four columns offset-by-four">
 			<input type="text" name="URL" ng-model="url">
-			<select>
-				<option value='POST' >POST</option>
+			<select ng-model="method">
 				<option value='GET' >GET</option>
-				<option value='PUT' >PUT</option>
+				<option value='POST' >POST</option>
+				<option value='OPTIONS' >OPTIONS</option>
+				<<option value='HEAD' >HEAD</option>
 			</select>
 			<button ng-click="fetch()">Fetch</button>
-			<ul>
-				<li ng-repeat="response in responses">
-					{{response.statusCode}}
+			<ul ng-repeat="response in responses">
+				<li>
+					{{response.statusCode}}				
+					{{response.methodName}}				
+					{{response.urlName}}				
+					{{response.size}}
 				</li>
 			</ul>
 		</div>
@@ -30,7 +34,7 @@
 	<script src="app.js"></script>
 
 	<script src="/mainController.js"></script>
-    <script src="/requestService.js"></script>
-    <script src="/responseFactory.js"></script>	
+	<script src="/requestService.js"></script>
+	<script src="/responseFactory.js"></script>	
 </body>
 </html>
