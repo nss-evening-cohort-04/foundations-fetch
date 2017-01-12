@@ -5,27 +5,32 @@
     <title>Fetch</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript" src="javascripts/app.js"></script>
+    <script type="text/javascript" src="javascripts/services/requestService.js"></script>
+    <script type="text/javascript" src="javascripts/factories/ResponseFactory.js"></script>
+    <script type="text/javascript" src="javascripts/controllers/homeCtrl.js"></script>
   </head>
   <body ng-controller="homeCtrl">
 
-      <div class="container">
-        <div class="row">
-          <div class="three columns">
-            <label for="textInput">Enter URL</label>
-            <input type="text" id="textInput" ng-model="url">
-            <button ng-click="fetch()">Click Me</button>
-          </div>
-        </div>
+    <div class="row">
+      <div class="three columns">
+        <label for="textInput">Enter URL</label>
+        <input type="text" id="textInput" ng-model="url">
+        <select name="select" ng-model="selectedMethod">
+          <option value="get">GET</option>
+          <option value="post">POST</option>
+          <option value="options">OPTIONS</option>
+          <option value="head">HEAD</option>
+        </select>
+        <button ng-click="fetch()">Fetch!</button>
       </div>
+    </div>
 
-      <ul>
-        <li ng-repeat="response in responses">
-          {{ response.statusCode }}
-        </li>
-      </ul>
+    <ul>
+      <li ng-repeat="response in responses">
+        {{ response.statusCode }}
+      </li>
+    </ul>
 
   </body>
-  <script type="text/javascript" src="javascripts/app.js"></script>
-  <!-- <script type="text/javascript" src="javascripts/controllers/homeCtrl.js"></script> -->
-
 </html>
