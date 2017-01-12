@@ -14,6 +14,7 @@
                     const response = new Response(success);
                     // push response to responses array
                     $scope.responses.push(response);
+                    response.url = $scope.url;
                     response.response_time = new Date().getTime() - start_time;
                     // push response time to responses array
                     // let response_time = {

@@ -13,17 +13,34 @@
 </head>
 
 <body ng-controller="MainController">
-    <div>
-        <input type="text" ng-model="url">
-        <button ng-click="fetch()">Click Me!</button>
-        <div>
+    <div class="container">
+        <center>
+            <h2>Foundations of Fetch</h2>
+        </center>
+        <hr/>
+
+
+        <div class="row">
+            <label class="four columns offset-by-two">Type a URL</label>
+            <label class="four columns">Select HTTP Method</label>
+        </div>
+        <div class="row">
+            <!--Type URL -->
+            <input type="text" class="four columns offset-by-two" ng-model="url">
+            <!-- Method Dropdown -->
             <select ng-model="method">
                 <option ng-repeat="method in methods" value="{{method}}">{{method}}</option>
             </select>
         </div>
-        <ul>
+        <div class="row">
+            <button class="two columns offset-by-five button-primary" ng-click="fetch()">Fetch</button>
+        </div>
+        <hr/>
+        <h4>Output</h4>
+        <hr/>
+        <ul class="eleven columns offset-by-one">
             <li ng-repeat="response in responses">
-                Status Code: {{ response.statusCode }} | Response Time: {{response.response_time}} | Content Length:
+                Url: {{response.url}} | Status Code: {{ response.statusCode }} | Response Time: {{response.response_time}} | Content Length:
             </li>
         </ul>
     </div>
