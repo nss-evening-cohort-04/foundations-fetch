@@ -35,13 +35,36 @@
             <button class="two columns offset-by-five button-primary" ng-click="fetch()">Fetch</button>
         </div>
         <hr/>
-        <h4>Output</h4>
+        <div class="row">
+            <div class="twelve columns">
+                <center>
+                    <h3>Successful Fetch Request</h3>
+                </center>
+            </div>
+        </div>
         <hr/>
-        <ul class="eleven columns offset-by-one">
-            <li ng-repeat="response in responses">
-                Url: {{response.url}} | Status Code: {{ response.statusCode }} | Response Time: {{response.response_time}} | Content Length:
-            </li>
-        </ul>
+        <div class="row">
+            <ul class="eleven columns offset-by-one">
+                <li ng-repeat="response in responses">
+                    Url: {{response.url}} | Status Code: {{ response.statusCode }} | Response Time: {{response.response_time}} | Content Length:
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <center>
+                    <h3>Failed Fetch Request</h3>
+                </center>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <ul class="eleven columns offset-by-one">
+                <li ng-repeat="failedresponse in failedresponses">
+                    Url: {{failedresponse.url}} | Status Code: {{failedresponse.statusCode}} | Response Time: {{failedresponse.response_time}} | Content Length:
+                </li>
+            </ul>
+        </div>
     </div>
 
 </body>
