@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>fetchApp</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="/app.js"></script>
     <script src="/mainController.js"></script>
@@ -14,9 +15,7 @@
 
 <body ng-controller="MainController">
     <div class="container">
-        <center>
-            <h2>Foundations of Fetch</h2>
-        </center>
+        <h2>Foundations of Fetch</h2>
         <hr/>
 
         <div class="row">
@@ -28,6 +27,7 @@
             <input type="text" class="four columns offset-by-two" ng-model="url">
             <!-- Method Dropdown -->
             <select ng-model="method">
+                <option value="">Choose a Method</option>
                 <option ng-repeat="method in methods" value="{{method}}">{{method}}</option>
             </select>
         </div>
@@ -37,9 +37,7 @@
         <hr/>
         <div class="row">
             <div class="twelve columns">
-                <center>
-                    <h3>Successful Fetch Request</h3>
-                </center>
+                <h3>Successful Fetch Request</h3>
             </div>
         </div>
         <hr/>
@@ -52,9 +50,7 @@
         </div>
         <div class="row">
             <div class="twelve columns">
-                <center>
-                    <h3>Failed Fetch Request</h3>
-                </center>
+                <h3>Failed Fetch Request</h3>
             </div>
         </div>
         <hr/>

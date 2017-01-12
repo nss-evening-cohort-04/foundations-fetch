@@ -11,7 +11,6 @@
             var start_time = new Date().getTime();
             requestService.call($scope.url, $scope.method)
                 .then((success) => {
-                    console.log(success);
                     const response = new Response(success);
                     // add the url to response
                     response.url = $scope.url;
