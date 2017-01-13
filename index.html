@@ -16,10 +16,7 @@
 
     <!-- dropdown select for http methods -->
     <select name="select" id="select">
-      <option value="PUT">PUT</option>
-      <option value="GET">GET</option>
-      <option value="OPTIONS">OPTIONS</option>
-      <option value="HEAD">HEAD</option>
+      <option ng-repeat="method in httpMethods" value="{{method}}">{{method}}</option>
     </select>
 
     <button ng-click="fetch()">Fetch</button>
