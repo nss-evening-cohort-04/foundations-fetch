@@ -32,14 +32,16 @@
 
 
 
-<ul>
+<ol>
   <li ng-repeat="response in responses">
-    Status Code: {{response.statusCode}}
-    Method: {{response.methodName}}
-    URL: {{response.urlName}}
-
+   <ul>
+      <li>URL: {{response.urlName}}</li>
+      <li>Status: {{response.statusDesc}}</li>
+      <li>Method: {{response.methodName}}</li>
+      <li>Content size: {{response.contentSize}}</li>
+   </ul>
   </li>
-</ul>
+</ol>
 
 </body>
 </html>
