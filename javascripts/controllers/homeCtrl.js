@@ -1,9 +1,10 @@
 (function() {
   angular.module("myApp").controller("homeCtrl", function($scope, requestService, Response) {
     $scope.responses = [];
-    $scope.url = "http://httpstat.us/200";
+    $scope.url = "https://nss-responsecodes.herokuapp.com/200";
 
     $scope.fetch = () => {
+      console.log("$scope.selectedMethod", $scope.selectedMethod);
       let timeRequestSent = Date.now();
       requestService.get($scope.url).then(success => {
         let timeRequestCompleted = Date.now();
