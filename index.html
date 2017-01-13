@@ -11,13 +11,25 @@
     <script src="/responseFactory.js"></script>
   </head>
   <body ng-controller="MainController">
+
     <input type="text" ng-model="url">
-    <button ng-click="fetch()">Click Me!</button>
+
+    <!-- dropdown select for http methods -->
+    <select name="select" id="select">
+      <option value="PUT">PUT</option>
+      <option value="GET">GET</option>
+      <option value="OPTIONS">OPTIONS</option>
+      <option value="HEAD">HEAD</option>
+    </select>
+
+    <button ng-click="fetch()">Fetch</button>
+
     <ul>
       <li ng-repeat="response in responses">
         {{ response.statusCode }}
       </li>
     </ul>
+
   </body>
 </html>
 

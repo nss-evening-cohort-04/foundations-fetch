@@ -2,6 +2,7 @@
   angular.module('fetchApp').controller('MainController', function ($scope, requestService, Response) {
     $scope.responses = [];
     $scope.url = "http://httpstat.us/200";
+    $scope.httpMethods = ["GET", "POST", "OPTIONS", "HEAD"];
 
     $scope.fetch = () => {
       requestService.get($scope.url).then((success) => {
@@ -12,6 +13,7 @@
         //do something else
       });
     };
+
   });
 })();
 
