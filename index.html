@@ -16,15 +16,17 @@
   <div class='sixteen columns'>
     <div class='six columns offset-by-three'>
       <input type = "text" ng-model = "url">
-        <select name="wompwomp">
-          <option value="pick">Choose wisely:</option>
-          <option value="get">GET</option>
-          <option value="head">HEAD</option>
-          <option value="options">OPTIONS</option>
-          <option value="post">POST</option>
+        <select name="wompwomp" ng-model="pickOne" ng-change="test()">
+          <option value="GET">GET</option>
+          <option value="HEAD">HEAD</option>
+          <option value="OPTIONS">OPTIONS</option>
+          <option value="POST">POST</option>
         </select>
         <button ng-click="fetch()">Fetch, rover!!</button>
       </div>
+    </div>
+    <div ng-show="selected">
+      <input>
     </div>
   </div>
 
