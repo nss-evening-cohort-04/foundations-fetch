@@ -1,19 +1,52 @@
 (function() {
   angular.module("myApp").controller("homeCtrl", function($scope, requestService, Response) {
-    $scope.responses = [];
+
     $scope.url = "https://nss-responsecodes.herokuapp.com/200";
 
     $scope.fetch = () => {
-      console.log("$scope.selectedMethod", $scope.selectedMethod);
       let timeRequestSent = Date.now();
-      requestService.get($scope.url).then(success => {
-        let timeRequestCompleted = Date.now();
-        let responseTime = timeRequestCompleted - timeRequestSent;
+      switch($scope.selectedMethod) {
+        case "get":
+          requestService.get($scope.url).then(success => {
+            promiseSuccess(success);
+          }, (error) => {
+            promiseError();
+          });
+          break;
+        case "post":
+          requestService.post($scope.url).then(success => {
+            promiseSuccess(success);
+          }, (error) => {
+            promiseError();
+          });
+          break;
+        case "options":
+          requestService.options($scope.url).then(success => {
+            promiseSuccess(success);
+          }, (error) => {
+            promiseError();
+          });
+          break;
+        case "head":
+          requestService.head($scope.url).then(success => {
+            promiseSuccess(success);
+          }, (error) => {
+            promiseError();
+          });
+          break;
+        default:
+          alert("Please select a method!");
+      }
+      function promiseSuccess(success) {
         const response = new Response(success);
-        $scope.responses.push(response);
-      }, (error) => {
-        //do something else
-      });
+        $scope.requestUrl = response.requestUrl;
+        $scope.method = response.method;
+        $scope.responseTime = response.timeRequestCompleted - timeRequestSent;
+        $scope.contentSize = response.contentSize;
+      };
+      function promiseError() {
+        alert("That URL cannot utilize that method!");
+      };
     };
   });
 })();
