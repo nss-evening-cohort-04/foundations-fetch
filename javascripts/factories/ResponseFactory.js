@@ -1,8 +1,10 @@
 (function(){
   angular.module("myApp").factory("Response", function() {
     const Response = function (responseData) {
-      console.log("responseData:", responseData);
-      this.statusCode = responseData.status;
+      this.requestUrl = responseData.config.url;
+      this.method = responseData.config.method;
+      this.timeRequestCompleted = Date.now();
+      this.contentSize = responseData.headers.length;
     };
 
     return Response;
