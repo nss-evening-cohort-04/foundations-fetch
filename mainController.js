@@ -2,6 +2,16 @@
   angular.module('fetchApp').controller('MainController', function ($scope, requestService, Response) {
     $scope.responses = [];
     $scope.url = "http://httpstat.us/200";
+    $scope.postSelected = false;
+
+    $scope.selected = function(pickOne) {
+      if (pickOne == "POST") {
+        return true;   
+      }
+      else {
+        return false;
+      }
+    }
     
     $scope.fetch = () => {
       if ($scope.pickOne == 'GET') {
