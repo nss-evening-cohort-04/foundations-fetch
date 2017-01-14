@@ -26,11 +26,20 @@
       </div>
     </div>
 
-    <ul>
-      <li ng-repeat="response in responses">
-        {{ response.statusCode }}
-      </li>
-    </ul>
+    <div class="output">
+      <div>
+        {{requestUrl}}
+      </div>
+      <div>
+        {{method}}
+      </div>
+      <div>
+        {{responseTime}}
+      </div>
+      <div>
+        {{contentSize}}
+      </div>
+    </div>
 
   </body>
 </html>
