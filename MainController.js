@@ -28,6 +28,26 @@
         }, (error) => {
           debugger
         });
+      } else if($scope.method == "HEAD"){
+        requestService.head($scope.url).then((success) => {
+          const receiveDate = (new Date()).getTime(); 
+          const response = new Response(success);
+          const responseTime = receiveDate - initialDate;
+          response.responseTime = responseTime;
+          $scope.responses.push(response);
+        }, (error) => {
+          debugger
+        });
+      } else if($scope.method == "OPTIONS"){
+        requestService.options($scope.url).then((success) => {
+          const receiveDate = (new Date()).getTime(); 
+          const response = new Response(success);
+          const responseTime = receiveDate - initialDate;
+          response.responseTime = responseTime;
+          $scope.responses.push(response);
+        }, (error) => {
+          debugger
+        });
       }
     };
 
