@@ -1,0 +1,24 @@
+.page-title {
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.centered {
+  text-align: center;
+}
+
+.margin-top {
+  margin-top: 6%;
+}
+
+.flex {
+  display: flex;
+}
+
+.zero-auto {
+  margin: 0 auto;
+}
+
+button:hover {
+  background-color: lightgrey;
+}
