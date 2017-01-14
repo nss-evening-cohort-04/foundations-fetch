@@ -38,10 +38,10 @@
       }
       function promiseSuccess(success) {
         const response = new Response(success);
-        $scope.requestUrl = response.requestUrl;
-        $scope.method = response.method;
-        $scope.responseTime = response.timeRequestCompleted - timeRequestSent;
-        $scope.contentSize = response.contentSize;
+        $scope.requestUrl = "URL: " + response.requestUrl;
+        $scope.method = "Method: " + response.method;
+        $scope.responseTime = "Response time: " + (response.timeRequestCompleted - timeRequestSent) + "ms";
+        $scope.contentSize = "Content size: " + response.contentSize + " octet";
       };
       function promiseError() {
         alert("That URL cannot utilize that method!");
