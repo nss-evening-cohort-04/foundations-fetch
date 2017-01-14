@@ -1,6 +1,5 @@
 (function() {
   angular.module("myApp").controller("homeCtrl", function($scope, requestService, Response) {
-
     $scope.url = "https://nss-responsecodes.herokuapp.com/200";
 
     $scope.fetch = () => {
