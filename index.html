@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fetchApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>fetchApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="/app.js"></script>
+    <script src="/mainController.js"></script>
+    <script src="/requestService.js"></script>
+    <script src="/responseFactory.js"></script>
+</head>
+
+<body ng-controller="MainController">
+    <div class="container">
+        <h2>Foundations of Fetch</h2>
+        <hr/>
+
+        <div class="row">
+            <label class="four columns offset-by-two">Type a URL</label>
+            <label class="four columns">Select HTTP Method</label>
+        </div>
+        <div class="row">
+            <!--Type URL -->
+            <input type="text" class="four columns offset-by-two" ng-model="url">
+            <!-- Method Dropdown -->
+            <select ng-model="method">
+                <option value="">Choose a Method</option>
+                <option ng-repeat="method in methods" value="{{method}}">{{method}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <button class="two columns offset-by-five button-primary" ng-click="fetch()">Fetch</button>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="twelve columns">
+                <h3>Successful Fetch Request</h3>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <ul class="eleven columns offset-by-one">
+                <li ng-repeat="response in responses">
+                    Url: {{response.url}} | Status Code: {{ response.statusCode }} | Response Time: {{response.response_time}} | Content Length:
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <h3>Failed Fetch Request</h3>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <ul class="eleven columns offset-by-one">
+                <li ng-repeat="failedresponse in failedresponses">
+                    Url: {{failedresponse.url}} | Status Code: {{failedresponse.statusCode}} | Response Time: {{failedresponse.response_time}} | Content Length:
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
