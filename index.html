@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+ <html lang="en" ng-app="fetchApp">
+   <head>
+     <meta charset="UTF-8">
+     <title>OMG</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+     <script src="/app.js"></script>
+     <script src="/mainController.js"></script>
+     <script src="/requestService.js"></script>
+     <script src="/responseFactory.js"></script>
+   </head>
+   <body ng-controller="MainController">
+     
+    	<div class="sixteen columns">
+	    	<div class="offset-by-four four columns">
+		    	<label>Enter URL:</label>
+			    <input type="text" ng-model="url">
+			    <label>Select Method:</label>
+			    <select ng-model="method" ng-change="checkPost()">
+			     	<option value="get">GET</option>
+			     	<option value="post">POST</option>
+			     	<option value="head">HEAD</option>
+			     	<option value="options">OPTIONS</option>
+			    </select>
+		    </div>
+		</div>
+		<div class="sixteen columns">
+		 	<div class="offset-by-four four columns">   
+				<button ng-click="fetch()">Click Me!</button>
+		     
+		     	<div ng-show="showPostForm">
+		     		<!-- <form action="" method="post">
+						  <label for="POST-name">Name:</label>
+						  <input name="POST-name" type="text">
+						  <input type="submit" value="Save" ng-click="fetch()">
+					</form>
+ -->
+		     	</div>
+
+			    <ul>
+			        <li ng-repeat="response in responses">
+			        
+			        	<p>Method: {{response.method}}</p>
+			        	<p>Response Time: {{response.responseTime}}ms</p>
+			        	<p>URL: {{response.url}}</p>
+			        	<p>Response Size: {{response.size}}MB</p>
+			        </li>
+			    </ul>
+		    </div> 
+	    </div>
+   </body>
+ </html>
