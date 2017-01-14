@@ -4,40 +4,51 @@
     <meta charset="utf-8">
     <title>Fetch</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script type="text/javascript" src="javascripts/app.js"></script>
     <script type="text/javascript" src="javascripts/services/requestService.js"></script>
     <script type="text/javascript" src="javascripts/factories/ResponseFactory.js"></script>
     <script type="text/javascript" src="javascripts/controllers/homeCtrl.js"></script>
   </head>
-  <body ng-controller="homeCtrl">
+  <body ng-controller="homeCtrl" class="margin-top">
 
-    <div class="row">
-      <div class="three columns">
-        <label for="textInput">Enter URL</label>
-        <input type="text" id="textInput" ng-model="url">
+    <div class="row centered">
+      <div class="twelve columns">
+        <label for="select" class="page-title">Choose an HTML Method</label>
         <select name="select" ng-model="selectedMethod">
           <option value="get">GET</option>
           <option value="post">POST</option>
           <option value="options">OPTIONS</option>
           <option value="head">HEAD</option>
         </select>
-        <button ng-click="fetch()">Fetch!</button>
       </div>
     </div>
 
-    <div class="output">
-      <div>
-        {{requestUrl}}
+    <div ng-show="selectedMethod">
+      <div class="row centered">
+        <div class="twelve columns">
+          <label for="textInput" class="page-title">Enter URL</label>
+          <input type="text" id="textInput" ng-model="url">
+          <button ng-click="fetch()">Fetch!</button>
+        </div>
       </div>
-      <div>
-        {{method}}
-      </div>
-      <div>
-        {{responseTime}}
-      </div>
-      <div>
-        {{contentSize}}
+    </div>
+
+    <div class="flex">
+      <div class="zero-auto">
+        <div>
+          {{requestUrl}}
+        </div>
+        <div>
+          {{method}}
+        </div>
+        <div>
+          {{responseTime}}
+        </div>
+        <div>
+          {{contentSize}}
+        </div>
       </div>
     </div>
 
