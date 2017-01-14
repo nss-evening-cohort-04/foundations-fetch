@@ -1,7 +1,7 @@
 ;(function () {
   angular.module('fetchApp').controller('MainController', function ($scope, requestService, Response) {
     $scope.responses = [];
-    $scope.url = "http://httpstat.us/200";
+    $scope.url;// = "http://httpstat.us/200";
     $scope.httpMethods = ["GET", "POST", "OPTIONS", "HEAD"];
 
     $scope.fetch = () => {
@@ -10,7 +10,6 @@
         const response = new Response(success);
         $scope.responses.push(response);
       }, (error) => {
-        //debugger
         //do something else
       });
     };
