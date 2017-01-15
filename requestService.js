@@ -1,8 +1,9 @@
-;(function () {
-  angular.module('fetchApp').service('requestService', function ($http) {
-    this.get = (url) => $http.get(url);
-    this.post = (url)=> $http.post(url);
-    this.head = (url)=> $http.head(url);
-    this.options = (url)=> $http.options(url);
+;
+(function() {
+  angular.module('fetchApp').service('requestService', function($http) {
+    this.processUrl = (url, method, data) => $http({
+      method: method,
+      url: url
+    });
   });
 })();
