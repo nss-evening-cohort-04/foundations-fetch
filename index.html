@@ -7,8 +7,8 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script type="text/javascript" src="/app.js"></script>
 	<script type="text/javascript" src="/requestService.js"></script>
-	<script type="text/javascript" src="/controllers/MainController.js"></script>
 	<script type="text/javascript" src="/factories/requestFactory.js"></script>
+	<script type="text/javascript" src="/controllers/MainController.js"></script>
 </head>
 <body ng-controller="MainController">
 
@@ -31,6 +31,7 @@
 					<li>Method Name: {{response.methodName}}</li>
 					<li>URL Name: {{response.urlName}}</li>
 					<li>Elapsed Time (in seconds): {{logTime}}</li>
+					<li>Content Size: {{response.contentSize}} Spaces</li>
 				</ul>
 			</div>			
 		</div>
