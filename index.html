@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fetchApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Foundations-Fetch</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="app.js"></script>
+    <script src="/requestService.js"></script>
+    <script src="/responseFactory.js"></script>
+    <script src="/mainController.js"></script>
+</head>
+<body ng-controller="MainController">
+<div class="container">
+  <div class="row">
+    <h1>Foundations Fetch</h1>
+    <input type="text" ng-model="url">
+    <button ng-click="fetch()">Fetch</button>
+    <label> HTTP Methods: </label>
+    <select name="select" ng-model="selectMethod">
+      <option value="GET">GET</option>
+      <option value="POST">POST</option>
+      <option value="OPTIONS">OPTIONS</option>
+      <option value="HEAD">HEAD</option>
+    </select>
+  </div>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th>Request URL</th>
+        <th>Request HTTP Method</th>
+        <th>Response Time</th>
+        <th>Content Size of Response</th>
+        <th>Status Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="response in responses">
+        <td>{{response.responseUrl}}</td>
+        <td>{{response.responseMethod}}</td>
+        <td>{{response.responseTime}} ms</td>
+        <td>{{responses.length}}</td>
+        <td>{{response.statusCode}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form ng-show="selectMethod=='POST'">
+    <div class="row">
+      <div class="six columns">
+        <label for="exampleEmailInput">Your email</label>
+        <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+      </div>
+    </div>
+    <label for="exampleMessage">Message</label>
+    <textarea class="u-full-width" placeholder="Hi Nathan …" id="exampleMessage"></textarea>
+    <label class="example-send-yourself-copy">
+      <input type="checkbox">
+      <span class="label-body">Send a copy to yourself</span>
+    </label>
+    <input class="button-primary" type="submit" value="Submit">
+  </form>
+</div>
+</body>
+</html>
