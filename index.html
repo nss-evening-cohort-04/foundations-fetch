@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="fetchApp">
+<head>
+	<title>Foundations-Fetch</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="/app.js"></script>
+	<script src="/mainController.js"></script>
+    <script src="/requestService.js"></script>
+    <script src="/responseFactory.js"></script>
+</head>
+<body ng-controller="MainController">
+<div class="row">
+<div class="eight columns offset-by-four">
+<h3>Foundations-Fetch</h3>
+<input type="text" ng-model="url" size="50"/>
+<select name="select" ng-model="method">
+  <option ng-value="GET">GET</option> 
+  <option ng-value="POST" selected>POST</option>
+  <option ng-value="OPTIONS">OPTIONS</option>
+  <option ng-value="HEAD">HEAD</option>
+</select>
+</br>
+<button type="button" class="button-primary" ng-click="fetch()">FETCH</button>
+<ul>
+	<li ng-repeat="response in responses">{{response.statusCode}}</li>
+</ul>
+</div>
+</div>
+
+<div class="row">
+	<div class="six columns offset-by-four"><label>Requested URL: <b>{{url}}</b></label></div>
+	<div class="six columns offset-by-four"><label>HTTP Method: <b>{{method}}</b></label></div>
+	<div class="six columns offset-by-four"><label>Response Time: <b>{{responseTimeMs}} ms</b></label></div>
+</div>
+</body>
+</html>
